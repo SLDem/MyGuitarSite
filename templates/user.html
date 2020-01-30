@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %} User Page {% endblock %}
+{% block content %}
+<div class="base">
+    <h1>Welcome Admin</h1>
+    {% for message in get_flashed_messages() %}
+        {{ message }}
+    {% endfor %}
+</div>
+{% endblock %}

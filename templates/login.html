@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %} Login {% endblock %}
+{% block content %}
+<div class="base">
+    <html>
+      <head>
+        <title>Flask Intro - login page</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="static/bootstrap.min.css" rel="stylesheet" media="screen">
+      </head>
+      <body>
+        <div class="container">
+          <h5 style="margin-bottom: -20px;">Enter your credentials: </h5>
+          <br>
+          <form action="" method="post">
+            <input type="text" placeholder="Username" name="username" value="{{
+              request.form.username }}">
+             <input type="password" placeholder="Password" name="password" value="{{
+              request.form.password }}">
+            <input  class="btn btn-default" type="submit" value="Login" style="border: groove 1px black; border-radius: 2px; width: 6%;">
+          </form>
+          {% if error %}
+            <p class="error"><strong></strong> {{ error }}
+          {% endif %}
+          {% for message in get_flashed_messages() %}
+            {{ message }}
+          {% endfor %}
+        </div>
+      </body>
+    </html>
+</div>
+{% endblock %}

@@ -56,6 +56,7 @@ def login():
         found_pass = users.query.filter_by(password=password).first()
         if found_user and found_pass:
             session['logged_in'] = True
+            session['username'] = username
             flash("You've just logged in!")
             return redirect(url_for('user'))
         else:
@@ -86,8 +87,9 @@ def register():
 @app.route('/user')
 @login_required
 def user():
+    username = session['username']
     if session.get('logged_in'):
-        return render_template('user.html')
+        return render_template('user.html', username=username)
     else:
         return redirect(url_for('login'))
 

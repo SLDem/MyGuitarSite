@@ -1,12 +1,31 @@
 from flask import Flask, render_template, url_for, request, session, flash, redirect
+from sqlalchemy import Column, Integer, String
+from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate
+from flask_table import Table, Col
+import flask_login
+import sqlite3
 from datetime import timedelta
 from functools import wraps
-from flask_sqlalchemy import SQLAlchemy
-import flask_login
 
 app = Flask(__name__)
 app.secret_key = 'secret_key_is'
 app.permanent_session_lifetime = timedelta(days=5)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.sqlite3'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+db = SQLAlchemy(app)
+
+
+class users(db.Model):
+    _id = db.Column("id", db.Integer, primary_key=True)
+    username = db.Column('username', db.String(100))
+    password = db.Column('password', db.String(100))
+
+    """
+    def __init__(self, username, password):
+        self.username = username
+        self.password = password
+    """
 
 
 @app.route('/index')
@@ -30,19 +49,44 @@ def login_required(f):
 def login():
     error = None
     if request.method == "POST":
-        if request.form['username'] != 'admin' or request.form['password'] != 'admin':
-            error = 'Invalid Data. Please try again.'
-        else:
+        username = request.form['username']
+        item_to_display = session['username']
+        password = request.form['password']
+        found_user = users.query.filter_by(username=username).first()
+        found_pass = users.query.filter_by(password=password).first()
+        if found_user and found_pass:
             session['logged_in'] = True
             flash("You've just logged in!")
             return redirect(url_for('user'))
+        else:
+            error = 'Invalid Data. Please try again.'
     return render_template('login.html', error=error)
+
+
+@app.route('/register', methods=['POST', 'GET'])
+def register():
+    if request.method == "POST":
+        username = request.form['username']
+        password = request.form['password']
+        session['username'] = username
+        session['password'] = password
+        found_user = users.query.filter_by(username=username).first()
+        if found_user:
+            flash("User already registered!")
+        elif not request.form['username'] or not request.form['password']:
+            flash("Enter valid data!")
+        else:
+            usr = users(username, password)
+            db.session.add(usr)
+            db.session.commit()
+            flash("User registered!")
+    return render_template('register.html')
 
 
 @app.route('/user')
 @login_required
 def user():
-    if session.get('logged_in') == True:
+    if session.get('logged_in'):
         return render_template('user.html')
     else:
         return redirect(url_for('login'))
@@ -123,5 +167,5 @@ def about():
 
 
 if __name__ == '__main__':
+    db.create_all()
     app.run(debug=True)
-

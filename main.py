@@ -50,7 +50,6 @@ def login():
     error = None
     if request.method == "POST":
         username = request.form['username']
-        item_to_display = session['username']
         password = request.form['password']
         found_user = users.query.filter_by(username=username).first()
         found_pass = users.query.filter_by(password=password).first()
@@ -103,7 +102,6 @@ def logout():
 
 
 @app.route('/')
-@login_required
 def home():
     return render_template("home.html")
 

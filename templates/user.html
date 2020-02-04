@@ -6,5 +6,8 @@
     {% for message in get_flashed_messages() %}
         {{ message }}
     {% endfor %}
+    <div class="logout-button">
+        <a href="/logout" style="text-decoration: none;">Logout</a>
+    </div>
 </div>
 {% endblock %}

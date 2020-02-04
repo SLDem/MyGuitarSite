@@ -3,11 +3,19 @@
 {% block content %}
 <div class="base">
     <h1>Welcome {{username}}!</h1>
+    <hr>
+    {% for post in posts %}
+    <p>
+    {{ post.author.username }} Says: <b>{{ post.body }}</b>
+    </p>
+    {% endfor %}
+
     {% for message in get_flashed_messages() %}
         {{ message }}
     {% endfor %}
+
     <div class="logout-button">
-        <a href="/logout" style="text-decoration: none;">Logout</a>
+        <a href="/logout" style="text-decoration: none; color: black;">Logout</a>
     </div>
 </div>
 {% endblock %}

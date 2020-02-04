@@ -3,10 +3,10 @@ from sqlalchemy import Column, Integer, String
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_table import Table, Col
-import flask_login
 import sqlite3
 from datetime import timedelta
 from functools import wraps
+
 
 app = Flask(__name__)
 app.secret_key = 'secret_key_is'
@@ -57,7 +57,7 @@ def login():
             session['logged_in'] = True
             session['username'] = username
             flash("You've just logged in!")
-            return redirect(url_for('user'))
+            return redirect(url_for('home'))
         else:
             error = 'Invalid Data. Please try again.'
     return render_template('login.html', error=error)
@@ -83,12 +83,16 @@ def register():
     return render_template('register.html')
 
 
-@app.route('/user')
+@app.route('/user/<username>')
 @login_required
-def user():
+def user(username):
     username = session['username']
     if session.get('logged_in'):
-        return render_template('user.html', username=username)
+        posts = [
+            {'author': user, 'body': 'Hai'},
+            {'author': user, 'body': 'C:'}
+        ]
+        return render_template('user.html', username=username, posts=posts)
     else:
         return redirect(url_for('login'))
 

@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a96402af-1280-4942-96f3-5742c39874d7" name="Default Changelist" comment="Merge branch 'master' of https://github.com/SLDem/MyGuitarSite&#10;&#10;# Conflicts:&#10;#&#9;requirements.txt">
-      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/guitar_lessons.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/guitar_lessons.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/urcomercial.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/urcomercial.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/user.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,11 +16,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="92" column="40" selection-start-line="92" selection-start-column="40" selection-end-line="92" selection-end-column="40" />
-              <folding>
-                <element signature="e#0#84#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="153">
+              <caret line="9" column="14" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -111,7 +103,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="1092" />
     <option name="width" value="828" />
     <option name="height" value="1040" />
@@ -419,11 +411,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="92" column="40" selection-start-line="92" selection-start-column="40" selection-end-line="92" selection-end-column="40" />
-          <folding>
-            <element signature="e#0#84#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="153">
+          <caret line="9" column="14" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
         </state>
       </provider>
     </entry>

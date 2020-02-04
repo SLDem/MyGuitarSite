@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a96402af-1280-4942-96f3-5742c39874d7" name="Default Changelist" comment="Merge branch 'master' of https://github.com/SLDem/MyGuitarSite&#10;&#10;# Conflicts:&#10;#&#9;requirements.txt" />
+    <list default="true" id="a96402af-1280-4942-96f3-5742c39874d7" name="Default Changelist" comment="Merge branch 'master' of https://github.com/SLDem/MyGuitarSite&#10;&#10;# Conflicts:&#10;#&#9;requirements.txt">
+      <change beforePath="$PROJECT_DIR$/Procfile.txt" beforeDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
